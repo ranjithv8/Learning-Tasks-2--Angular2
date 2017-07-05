@@ -29,21 +29,17 @@ class MockHeroService {
 
 describe('Component: heroesComponent', () => {
 	var app:HeroesComponent,fixture:any,
-		mockHeroService:MockHeroService;
+		mockHeroService:MockHeroService,
+		router:Router;
     beforeEach(() => {
 	    TestBed.configureTestingModule({
 	      declarations: [HeroesComponent],
-	      providers: [{ provide: HeroService, useClass: MockHeroService },
+	      providers: [{ provide: HeroService, useClass: MockHeroService }]
 	    });
   	});
 
   	it('check Hero service', async(() => {
-  		TestBed.overrideComponent(HeroesComponent, {
-	    	set: {
-	       		template: '<div>Overridden template here</div>'
-	       }
-	    });
-	    TestBed.compileComponents().then(() => {
+  		TestBed.compileComponents().then(() => {
 
 		    fixture = TestBed.createComponent(HeroesComponent);
 
@@ -56,4 +52,10 @@ describe('Component: heroesComponent', () => {
 		});
 	    
 	}));
+});
+
+describe('Component: herosDetail', () => {
+	it('check Hero service', () => {
+		expect(true).toBe(true);
+	});
 });

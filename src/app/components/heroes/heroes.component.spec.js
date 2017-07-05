@@ -19,19 +19,14 @@ var MockHeroService = (function () {
     return MockHeroService;
 }());
 describe('Component: heroesComponent', function () {
-    var app, fixture, mockHeroService;
+    var app, fixture, mockHeroService, router;
     beforeEach(function () {
         testing_1.TestBed.configureTestingModule({
             declarations: [heroes_component_1.HeroesComponent],
-            providers: [{ provide: hero_service_1.HeroService, useClass: MockHeroService },]
+            providers: [{ provide: hero_service_1.HeroService, useClass: MockHeroService }]
         });
     });
     it('check Hero service', testing_1.async(function () {
-        testing_1.TestBed.overrideComponent(heroes_component_1.HeroesComponent, {
-            set: {
-                template: '<div>Overridden template here</div>'
-            }
-        });
         testing_1.TestBed.compileComponents().then(function () {
             fixture = testing_1.TestBed.createComponent(heroes_component_1.HeroesComponent);
             // Access the dependency injected component instance
@@ -42,5 +37,10 @@ describe('Component: heroesComponent', function () {
             fixture.detectChanges();
         });
     }));
+});
+describe('Component: herosDetail', function () {
+    it('check Hero service', function () {
+        expect(true).toBe(true);
+    });
 });
 //# sourceMappingURL=heroes.component.spec.js.map
